@@ -1,16 +1,24 @@
-export const App = () => {
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SignupForm from './SignupForm/SignupForm';
+import UseComponent from './UseComponent/UseComponent';
+
+const containerStyles = {
+  maxWidth: 1170,
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  paddingLeft: 15,
+  paddingRight: 15,
+};
+
+export default function App() {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div style={containerStyles}>
+      <Router>
+        <Routes>
+          <Route path="/signup" element={<SignupForm />} />
+          <Route path="/use" element={<UseComponent />} />
+        </Routes>
+      </Router>
     </div>
   );
-};
+}
